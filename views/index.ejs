@@ -1,25 +1,155 @@
 <!doctype html>
 <html>
+
 <head>
-    <title>21 Savage Fan Site</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <title>Barista App</title>
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Lacquer&family=Londrina+Solid:wght@900&display=swap"
+        rel="stylesheet">
+    <style>
+        .submit {
+            background-color: rgba(255, 255, 255, 0);
+            background-image: url('enter.png');
+            background-size: 100%;
+            width: 200px;
+            height: 80px;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            float:left;
+            margin-left:1%;
+        }
+
+        .submit:hover{transform:scale(1.1);}
+        .submit:active{transform:scale(0.7);}
+
+        h1 {
+            margin-bottom: 0;
+            margin-top: 11%;
+            color: white;
+            font-family: 'Londrina Solid', cursive;
+            font-size: 120px;
+            letter-spacing: 3px;
+            -webkit-text-stroke-width: 3px;
+            -webkit-text-stroke-color: black;
+            text-shadow: 8px 8px 1px rgba(0, 0, 0, 0.705);
+        }
+
+        body {
+            background-color: rgb(0, 97, 188);
+            text-align: center;
+        }
+        
+
+        .title {
+            width: 80%;
+            margin: auto;
+            height: 250px;
+            margin-top:6%;
+            clear: both;
+        }
+
+        .placeAnOrder {
+            margin: auto;
+            width: 80%;
+            clear:both;
+        }
+
+        .signInorsignUp {
+            clear:both;
+            margin:auto;
+        }
+
+        #coffeePic,
+        #titleWords {
+            float: left;
+        }
+
+        #coffeePic {
+            width: 25%;
+            padding-left: 3%;
+            margin-top: 2.5%;
+        }
+
+        #titleWords {
+            margin-left: 9%;
+        }
+
+        input {
+            font: 35px 'Lacquer', cursive;
+            letter-spacing: 1px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 3px solid black;
+            margin-left: 1%;
+            box-shadow: 10px 10px 1px rgba(4, 4, 4, 0.281);
+            width:30%;
+            float:left;
+        }
+
+        #inputs{
+            margin-left:13%;
+        }
+
+        .signInorsignUp a,
+        .signInorsignUp span{
+        color:white;
+        text-decoration: none;
+        font: 40px 'Londrina Solid', cursive;
+        margin-left:1%;
+        background:rgb(1, 138, 129);   
+        padding:10px;
+        padding-right:20px;
+        letter-spacing: 2px;
+        }
+
+        .signInorsignUp span{
+            padding:0;
+        }
+
+        .signInorsignUp a{
+            box-shadow: 7px 7px 1px rgba(4, 4, 4, 0.408);
+        }
+
+        .thanks{
+            font: 40px 'Lacquer', cursive;
+            color:white;
+
+        }
+
+    </style>
 </head>
+
 <body>
-<div class="container">
+    <section class="title">
+        <section id="titleWords">
+            <h1>Cafe con Leche</h1>
+        </section>
+        <section id="cofee">
+            <img src='cafe.png' id="coffeePic">
+        </section>
+    </section>
 
-    <div class="jumbotron text-center">
-        <h1>21 Savage Fan Site</h1>
-        <img src="img/savage21.jpg" alt="21 Savage Profile Photo">
+    <section class="placeAnOrder"><br>
+        <section id="inputs">
+            <input class="customerName" placeholder="customer's name">
+            <input class="customerOrder" placeholder="order">
+        </section>
+        <section id="button">
+            <button class="submit" type=submit onclick="addOrder()"></button>
+        </section>
+    </section>
 
-        <p>Login or Signup:</p>
-
+    <section class="signInorsignUp">
+        <br><br><br>
         <a href="/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a>
         <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span>Signup</a>
+    </section>
 
-    </div>
-
-</div>
+    <h4 class="thanks"></h4>
 </body>
+<script src="main.js"></script>
+
+
 </html>
