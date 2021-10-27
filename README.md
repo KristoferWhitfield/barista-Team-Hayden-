@@ -7,4 +7,4 @@ A local coffee house is finally starting to take off ever since they introduced 
 Made using HTML, CSS, Javascript, Node.js, JSON, Express, EJS, MongoDB, and User Authentification using passport.
 
 ## Main Takeaways
-Learned how to manage multiple users on the app. Would love to implement more functionalities to the cashier's screen, like adding a temperature button, or even a "make another order" button that refreshes the page - but will circle back to this. Was able to have the app speak "order for *customer's name* is ready, so that was really fun to learn! 
+Learned how to manage multiple users on the app. Would love to implement more functionalities to the cashier's screen, like adding a temperature button, or an optional button to specify what kind of creamer/sugar the customer wants. Or even a "make another order" button that refreshes the page - but will circle back to these ideas! Was able to have the app speak "order for *customer's name* is ready, so that was really fun to learn too!
