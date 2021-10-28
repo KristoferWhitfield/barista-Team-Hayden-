@@ -4,6 +4,9 @@
 <head>
     <title>Barista App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fruktur&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Pirata+One&family=Lacquer&family=Londrina+Solid:wght@900&display=swap"
         rel="stylesheet">
@@ -65,9 +68,9 @@
         .signInorsignUp span {
             color: white;
             text-decoration: none;
-            font: 20px 'Londrina Solid', cursive;
+            font: 20px 'Fruktur', cursive;
             margin-left: 3%;
-            background: rgb(1, 138, 129);
+            background: #0084D0;
             padding: 10px;
             padding-right: 20px;
             letter-spacing: 2px;
@@ -168,6 +171,10 @@
             color: white;
         }
 
+        #coffee > span {
+          margin-right: 220px;
+        }
+
 
         #size button {
             background: rgb(84, 172, 255);
@@ -183,7 +190,7 @@
 
         .buttons {
             float: left;
-            width: 38%;
+            width: 60%;
         }
 
         .buttons button {
@@ -204,10 +211,20 @@
             clear: both;
             margin-bottom: 4%;
         }
+        section > span {
+          color: #0084C9;
+          font: 30px 'Fruktur', cursive;
+          letter-spacing: 10px;
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: white;
+          text-shadow: 6px 5px 10px rgba(255, 255, 255, 0.705);
+          margin: 0;
+          margin-bottom: -16.5%;
+        }
 
         .buttons .customerOrder {
             margin-top: 2%;
-            width: 40%;
+            width: 50%;
             font-size: 22px;
             float: left;
             margin-left: 6%;
@@ -227,6 +244,12 @@
             margin: 0;
             margin-top: 1%;
             margin-left: 2%;
+        }
+
+        .freshCoffee {
+          margin-top: 40px;
+          border-radius: 20px;
+          border: 3px solid white;
         }
 
         #orderFor {
@@ -261,7 +284,7 @@
 <body>
     <section class="title">
         <h1 id="welcome">Welcome to...</h1>
-        <h1 id="cafe">Cafe con Leche</h1>
+        <h1 id="cafe">Brewing Beans</h1>
     </section>
 
     <section id="main">
@@ -276,20 +299,24 @@
             <img src='cafe.png' id="coffeePic"><br>
             <a href="/login" class="btn btn-default "><span class="fa fa-user "></span>Login</a>
             <a href="/signup" class="btn btn-default log"><span class="fa fa-user log"></span>Signup</a>
+            <img class="freshCoffee" src='freshcoffee.jpg' id="freshCoffeePic">
         </section>
         <section class="buttons">
             <input class="customerName" oninput="customerNameInput" placeholder="enter customer's name">
             <section id="size">
+                <span>Size</span>
                 <button onclick='clickButton(event)'>tall</button>
                 <button onclick='clickButton(event)'>grande</button>
                 <button onclick='clickButton(event)'>venti</button>
             </section>
             <section id="roast">
+                <span>Roast</span>
                 <button onclick='clickButton(event)'>light</button>
                 <button onclick='clickButton(event)'>medium</button>
                 <button onclick='clickButton(event)'>dark</button>
             </section>
             <section id="coffee">
+                <span>Brew</span>
                 <button onclick='clickButton(event)'>coffee</button>
                 <button onclick='clickButton(event)'>cold brew</button>
                 <button onclick='clickButton(event)'>latte</button>
@@ -298,11 +325,13 @@
                 <button onclick='clickButton(event)'>frappucino</button>
             </section>
             <section id="tea">
+                <span>Tea</span>
                 <button onclick='clickButton(event)'>green tea</button>
                 <button onclick='clickButton(event)'>black tea</button>
                 <button onclick='clickButton(event)'>other tea</button>
             </section>
             <section id="custom">
+                <span>Customization</span>
                 <button onclick='clickButton(event)'>decaf</button>
                 <button onclick='clickButton(event)'>iced</button>
                 <button onclick='clickButton(event)'>hot</button>

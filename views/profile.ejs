@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Mrs+Sheppards&family=Pirata+One&family=Sedgwick+Ave+Display&family=Tourney:ital,wght@1,100;1,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Mrs+Sheppards&family=Pirata+One&family=Sedgwick+Ave+Display&family=Tourney:ital,wght@1,100;1,500&display=swap" rel="stylesheet">
 
 <style>
   body{
@@ -19,13 +20,13 @@
   }
 
   h1{
-    font: 35px 'Tourney', cursive;
+    font: 50px 'Ceviche One', cursive;
     letter-spacing: 2px;
     padding:2%;
-    color:white;
+    color: darkgreen;
     -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
-  text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.568);
+    -webkit-text-stroke-color: white;
+    text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.568);
   }
 
   #pic{
@@ -46,7 +47,7 @@
     font: 25px 'Sedgwick Ave Display', cursive;
     border-radius: 10px;
     background: rgb(47, 42, 1);
-    color:white;
+    color: darkgreen;
     border:none;
     letter-spacing: 1px;
     box-shadow: 7px 7px 1px rgba(4, 4, 4, 0.281);
@@ -55,8 +56,8 @@
   }
 
 .titles{
-  font: 65px 'Sedgwick Ave Display', cursive;
-  color:white;
+  font: 65px 'Ceviche One', cursive;
+  color: darkgreen;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.568);
@@ -94,18 +95,18 @@
 }
 
 #name{
-  font: 40px 'Mrs Sheppards', cursive;
+  font: 40px 'Ceviche One', cursive;
   color:black;
-  background:rgba(255, 213, 0, 0.623);
+  background:white;
   padding-right:15px;
   padding-left:15px;
   border-radius: 10px;
 }
 
 #order{
-  font: 70px 'Pirata One', cursive;
+  font: 25px 'Pirata One', cursive;
   text-align: center;
-  padding:2%;
+  color: darkgreen;
 }
 
 .completeBtn{
@@ -115,6 +116,7 @@
   background-size: 100%;
   background-color:rgba(28, 26, 0, 0.822);
   border:none;
+  margin-top: 50px;
 }
 
 .completeBtn:active{
@@ -148,6 +150,7 @@
   clear:both;
   font-size:20px;
   margin-right:5%;
+  background-color: darkgreen;
 }
 
 .deleteOrder:hover{
@@ -162,7 +165,7 @@
 }
 
 #madeBy{
-  color:gold;
+  color: darkgreen;
 }
 
 </style>
@@ -187,12 +190,12 @@
               order for:  <%= incompleteOrders[i].customerOrder.customerName %><br>
             </span>
             <span id="order">
-              Size: <%= incompleteOrders[i].customerOrder.size %><br><br>
-              Roast: <%= incompleteOrders[i].customerOrder.roast %><br><br>
-              Drink: <%= incompleteOrders[i].customerOrder.drink %><br><br>
-              Special Orders: <%= incompleteOrders[i].customerOrder.custom.join(', ') %><br><br>
-              Temperature : <%= incompleteOrders[i].customerOrder.temperature %><br><br>
-              Special Instructions : <%= incompleteOrders[i].customerOrder.specialInstructions %><br><br>
+              Size: <%= incompleteOrders[i].customerOrder.size %><br>
+              Roast: <%= incompleteOrders[i].customerOrder.roast %><br>
+              Drink: <%= incompleteOrders[i].customerOrder.drink %><br>
+              Special Orders: <%= incompleteOrders[i].customerOrder.custom.join(', ') %><br>
+              Temperature : <%= incompleteOrders[i].customerOrder.temperature %><br>
+              Special Instructions : <%= incompleteOrders[i].customerOrder.specialInstructions %><br>
 
 
             </span>

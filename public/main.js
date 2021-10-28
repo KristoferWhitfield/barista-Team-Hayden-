@@ -19,7 +19,7 @@ function addOrder() {
         // let body = document.querySelector('.hide')
         // body.getElementsByClassName.display = 'none'
         // document.querySelector('#thanksGif').src = "thanks.gif"
-        // window.location.reload(true)
+        window.location.reload(true)
       }
     })
 }
@@ -41,7 +41,7 @@ function completeOrder(orderId, user, customerName) {
         var msg = new SpeechSynthesisUtterance();
         msg.text = "Order for " + customerName + " is ready";
         window.speechSynthesis.speak(msg);
-        // window.location.reload(true)
+        window.location.reload(true)
 
       }
     })
