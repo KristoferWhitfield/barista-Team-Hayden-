@@ -1,75 +1,141 @@
-var thumbUp = document.getElementsByClassName("fa-thumbs-up");
-var trash = document.getElementsByClassName("fa-trash");
-var thumbDown = document.getElementsByClassName("fa-thumbs-down");
-
-// create eventlisteners for the buttons create a post promise that will
-// take the values of the inputs and save it to the database
-
-
-
-
-Array.from(thumbUp).forEach(function (element) {
-  element.addEventListener("click", function () {
-    const name = this.parentNode.parentNode.childNodes[1].innerText;
-    const msg = this.parentNode.parentNode.childNodes[3].innerText;
-    const thumbUp = parseFloat(
-      this.parentNode.parentNode.childNodes[5].innerText
-    );
-    fetch("messages", {
-      method: "put",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name,
-        msg: msg,
-        thumbUp: thumbUp,
-      }),
+function addOrder() {
+  cashierOrder.customerName = document.querySelector('.customerName').value
+  cashierOrder.specialInstructions = document.querySelector('.customerOrder').value
+  // let body = document.querySelector('.hide')
+  // body.getElementsByClassName.display = 'none'
+  console.log(cashierOrder.customerName)
+  fetch('orders', {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      'customerName': cashierOrder.customerName,
+      'customerOrder': cashierOrder,
     })
-      .then((response) => {
-        if (response.ok) return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        window.location.reload(true);
-      });
-  });
-});
-Array.from(thumbDown).forEach(function (element) {
-  element
-    .addEventListener("click", function () {
-      const name = this.parentNode.parentNode.childNodes[1].innerText;
-      const msg = this.parentNode.parentNode.childNodes[3].innerText;
-      fetch("messages", {
-        method: "put",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          msg: msg,
-          thumbUp: thumbDown,
-        }),
-      });
-    })
-    .then(function (response) {
-      window.location.reload(true);
-    });
-});
+  })
 
-Array.from(trash).forEach(function (element) {
-  element.addEventListener("click", function () {
-    const name = this.parentNode.parentNode.childNodes[1].innerText;
-    const msg = this.parentNode.parentNode.childNodes[3].innerText;
-    fetch("messages", {
-      method: "delete",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        msg: msg,
-      }),
-    }).then(function (response) {
-      window.location.reload();
-    });
-  });
-});
+    .then(response => {
+      if (response.ok) {
+        // document.querySelector('.thanks').innerText = 'Thanks for your order, ' + cashierOrder.customerName + '!'
+        // let body = document.querySelector('.hide')
+        // body.getElementsByClassName.display = 'none'
+        // document.querySelector('#thanksGif').src = "thanks.gif"
+        // window.location.reload(true)
+      }
+    })
+}
+
+function completeOrder(orderId, user, customerName) {
+
+  console.log('id:' + orderId + 'user:' + user, customerName)
+  fetch('orders', {
+    method: 'put',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      'orderId': orderId,
+      'barista': user
+    })
+  })
+    .then(response => {
+      console.log(response)
+      if (response.ok) {
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = "Order for " + customerName + " is ready";
+        window.speechSynthesis.speak(msg);
+        // window.location.reload(true)
+
+      }
+    })
+}
+
+function deleteList(orderId) {
+  fetch('orders', {
+    method: 'delete',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      'orderId': orderId,
+    })
+  })
+    .then(response => {
+      console.log(response)
+      if (response.ok) {
+        window.location.reload(true)
+      }
+    })
+}
+
+let cashierOrder = {
+  customerName : '',
+  size : 'tall',
+  roast : 'light',
+  drink : 'coffee',
+  custom : [],
+  temperature : 'hot',
+  specialInstructions : ''
+}
+
+function clickButton(event){
+  let buttonText = event.target.innerText
+
+  console.log(buttonText)
+  if (buttonText === 'tall' || buttonText === 'grande' || buttonText === 'venti'){
+    cashierOrder.size = buttonText
+  } else if (buttonText === 'light' || buttonText === 'medium' || buttonText === 'dark'){
+    cashierOrder.roast = buttonText
+  } else if (buttonText === 'coffee' || buttonText === 'cold brew' || buttonText === 'lattee' ||
+    buttonText === 'espresso shot' || buttonText === 'cappucino' || buttonText === 'frappucino' ||
+    buttonText === 'green tea' || buttonText === 'black tea' || buttonText === 'other tea'){
+      cashierOrder.drink = buttonText
+  } else if (buttonText === 'hot' || buttonText === 'iced'){
+    cashierOrder.temperature = buttonText
+  }  else {
+    console.log('buttonText' + buttonText)
+    cashierOrder.custom.push(buttonText)
+  }
+
+}
+
+function customerNameInput(){
+  cashierOrder.customerName = document.querySelector('.customerName').value
+}
+
+function customerInstruction(){
+  cashierOrder.specialInstructions = document.querySelector('.customerOrder').value
+}
+
+
+
+// function addTask() {
+//   let taskAdded = document.querySelector('.task').value
+//   let nameEntered = document.querySelector('.name').value
+//   console.log(taskAdded)
+
+//   fetch('tasks', {
+//     method: 'post',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify({
+//       'newTasks': taskAdded,
+//       'name': nameEntered,
+//     })
+//   })
+//     .then(response => {
+//       if (response.ok) {
+//         window.location.reload(true)
+//       }
+//     })
+// }
+
+// function deleteTask(e) {
+//   console.log(e.target.getAttribute('data-id'))
+//   fetch('tasks', {
+//     method: 'delete',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify({
+//       'taskIdToDelete': e.target.getAttribute('data-id'),
+//     })
+//   })
+//     .then(response => {
+//       if (response.ok) {
+//         window.location.reload(true)
+//       }
+//     })
+// }
