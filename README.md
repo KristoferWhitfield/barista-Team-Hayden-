@@ -3,7 +3,7 @@
 This application allows the chashier to take in a customers order. The barista can login and see what orders need to be filled and complete the orders.
 Completing the order removes the order from the list.
 
-![screenshot](https://raw.githubusercontent.com/KristoferWhitfield/ProduceTracker/main/screen.JPG)
+![screenshot](https://github.com/KristoferWhitfield/barista-Team-Hayden-/blob/main/public/screenshot.JPG)
 
 ## Hows It's Made:
 
